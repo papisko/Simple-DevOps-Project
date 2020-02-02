@@ -55,7 +55,7 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=eu-west-1a --name=demo.k8s.galgui.corp --dns-zone=galgui.corp --dns private 
+   kops create cluster --cloud=aws --zones=eu-west-1a --node-size=t2.micro --master-size=t2.micro --dns-zone=galgui.corp --dns private demo.k8s.galgui.corp
     ```
 
 1. Create kubernetes cluser
