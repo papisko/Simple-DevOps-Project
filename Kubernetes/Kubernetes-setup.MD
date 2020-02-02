@@ -35,17 +35,17 @@
 1. Create a Route53 private hosted zone (you can create Public hosted zone if you have a domain)
    ```sh
    Routeh53 --> hosted zones --> created hosted zone  
-   Domain Name: galgui.sn
+   Domain Name: galgui.corp
    Type: Private hosted zone for Amzon VPC
    ```
 
 1. create an S3 bucket
    ```sh
-    aws s3 mb s3://demo.k8s.galgui.sn
+    aws s3 mb s3://demo.k8s.galgui.corp
    ```
 1. Expose environment variable:
    ```sh
-    export KOPS_STATE_STORE=s3://demo.k8s.galgui.sn
+    export KOPS_STATE_STORE=s3://demo.k8s.galgui.corp
    ```
 
 1. Create sshkeys before creating cluster
@@ -55,12 +55,12 @@
 
 1. Create kubernetes cluster definitions on S3 bucket
    ```sh
-   kops create cluster --cloud=aws --zones=eu-west-1a --name=demo.k8s.galgui.sn --dns-zone=galgui.sn --dns private 
+   kops create cluster --cloud=aws --zones=eu-west-1a --name=demo.k8s.galgui.corp --dns-zone=galgui.corp --dns private 
     ```
 
 1. Create kubernetes cluser
     ```sh
-    kops update cluster demo.k8s.galgui.sn --yes
+    kops update cluster demo.k8s.galgui.corp --yes
     ```
 
 1. Validate your cluster
@@ -75,7 +75,7 @@
 
 1. To delete cluster
     ```sh
-     kops delete cluster demo.k8s.galgui.sn --yes
+     kops delete cluster demo.k8s.galgui.corp --yes
     ```
    
 #### Deploying Nginx pods on Kubernetes
